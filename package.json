@@ -1,0 +1,22 @@
+{
+  "name": "outlook_assist_emails",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessicaprado/OutlookAssistEmails.git"
+  },
+  "author": "Jessica Prado",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jessicaprado/OutlookAssistEmails/issues"
+  },
+  "homepage": "https://github.com/jessicaprado/OutlookAssistEmails#readme",
+  "dependencies": {
+    "simple-oauth2": "^1.1.0"
+  }
+}
