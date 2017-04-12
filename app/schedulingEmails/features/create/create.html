@@ -1,31 +1,56 @@
-Hello world!
+<div class="create col-md-12">
 
-Template Selector <--will associate with proper contact list
-
-
-
-Shift Start Time<br>
-	  	<div class="input-group"
-			moment-picker="PostVM.shift.start"
-			format="LT">
-			
-			<input class="form-control"
-			    placeholder="Select a time"
-			    ng-model="PostVM.shift.start"
-			    ng-model-options="{ updateOn: 'blur' }">
+	<div class="row">
+		<div class="eventType col-md-8">
+			<label class="radio-inline">
+		      	<input type="radio" name="bridal">Bridal
+		    </label>
+		    <label class="radio-inline">
+		      	<input type="radio" name="family">Family
+		    </label>
+		    <label class="radio-inline">
+		      	<input type="radio" name="ols">OLS
+		    </label>
+		    <label class="radio-inline">
+		      	<input type="radio" name="mmdGroup">MMD/Group
+		    </label>
+		    <label class="radio-inline">
+		      	<input type="radio" name="all">Send All
+		    </label>
 		</div>
-	  	<br>
-	  	Shift End Time<br>
-	  	<div class="input-group"
-			moment-picker="PostVM.shift.end"
-			format="LT">
-		
-			<input class="form-control"
-			    placeholder="Select a time"
-			    ng-model="PostVM.shift.end"
-			    ng-model-options="{ updateOn: 'blur' }">
-		</div><br>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4"> 
+			<h5>Start</h5>
+		  	<div class="input-group"
+				moment-picker="CreateVM.shift.start"
+				format="LT">
+				
+				<input class="form-control"
+				    placeholder="Select a time"
+				    ng-model="CreateVM.shift.start"
+				    ng-model-options="{ updateOn: 'blur' }">
+			</div>
+		</div>
+	  	
+	  	<div class="col-md-4">
+	  		<h5>End</h5>
+		  	<div class="input-group"
+				moment-picker="CreateVM.shift.end"
+				format="LT">
+			
+				<input class="form-control"
+				    placeholder="Select a time"
+				    ng-model="CreateVM.shift.end"
+				    ng-model-options="{ updateOn: 'blur' }">
+			</div>
+		</div>
+	</div>
+
 
 Email
-
-Send
+	<div class="row">
+		<button>Send</button>
+	</div>
+</div>
