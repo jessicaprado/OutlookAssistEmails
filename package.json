@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/jessicaprado/OutlookAssistEmails#readme",
   "dependencies": {
+    "angular-moment-picker": "^0.9.10",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
     "node-outlook": "^1.1.6",
     "simple-oauth2": "^1.1.0"
   }

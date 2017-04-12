@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Scheduling Tools</title>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+        <script src="//cdn.rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.min.js"></script>
+        <link href="//cdn.rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="schedulingEmails/layout/assets/style/style.css">
+    </head>
+
+    <body ng-app="schedulingEmails">
+        <div class="content">
+            <ui-view></ui-view>
+        </div>
+
+        <script src="schedulingEmails/schedulingEmails.module.js"></script>
+
+        <script src="schedulingEmails/features/create/create.module.js"></script>
+        <script src="schedulingEmails/features/create/create.controller.js"></script>
+        <script src="schedulingEmails/features/create/create.routes.js"></script>
+
+
+    </body>
+</html>
