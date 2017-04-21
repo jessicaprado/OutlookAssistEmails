@@ -4,4 +4,10 @@ angular
 
 function CreateCtrl() {
     var vm = this;
+
+    vm.shift = {
+    	'type': ''
+    }  
+
+    console.log(vm.shift);
 }

@@ -3,21 +3,24 @@
 	<div class="row">
 		<div class="eventType col-md-8">
 			<label class="radio-inline">
-		      	<input type="radio" name="bridal">Bridal
+		      	<input type="radio" ng-model="CreateVM.shift.type" value="bridal">Bridal
 		    </label>
 		    <label class="radio-inline">
-		      	<input type="radio" name="family">Family
+		      	<input type="radio" ng-model="CreateVM.shift.type" value="family">Family
 		    </label>
 		    <label class="radio-inline">
-		      	<input type="radio" name="ols">OLS
+		      	<input type="radio" ng-model="CreateVM.shift.type" value="ols">OLS
 		    </label>
 		    <label class="radio-inline">
-		      	<input type="radio" name="mmdGroup">MMD/Group
+		      	<input type="radio" ng-model="CreateVM.shift.type" value="mmdGroup">MMD/Group
 		    </label>
 		    <label class="radio-inline">
 		      	<input type="radio" name="all">Send All
 		    </label>
+
+		   {{CreateVM.shift.type}} 
 		</div>
+		
 	</div>
 
 	<div class="row">
