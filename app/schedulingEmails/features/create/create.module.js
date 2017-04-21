@@ -1,3 +1,4 @@
 angular.module('schedulingEmails.create', [
-   'moment-picker'
+	'schedulingEmails.component.emailContent',
+    'moment-picker'
 ]);

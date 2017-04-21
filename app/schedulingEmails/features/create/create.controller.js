@@ -9,5 +9,5 @@ function CreateCtrl() {
     	'type': ''
     }  
 
-    console.log(vm.shift);
+    
 }
