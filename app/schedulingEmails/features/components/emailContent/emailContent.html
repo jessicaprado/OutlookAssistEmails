@@ -1,16 +1,22 @@
-<div class="subject">Assist Needed for BP: {{date}} </div>
 
-<div class="body">
-	Team, <br>
+<div class="row emailContent">
+	<div class="subject">Assist Needed for {{event.type}}: {{date}} </div>
 
-	We need an assist for a BP on {{date}}. Are you available? <br>
+	<div class="body">
+		Team, <br>
 
-	Event: {{event}}<br>
-	Event Date: {{event date}}<br>
-	Event Time: {{event Time}}<br>
-	Photographer Call Time: {{call time}}<br>
+		We need an assist for a {{event.type}} on {{date}}. Are you available? <br>
 
-	{{signature}}<br>
+		Event: {{event}}<br>
+		Event Date: {{event date}}<br>
+		Event Time: {{event Time}}<br>
+		Photographer Call Time: {{call time}}<br>
 
+		{{signature}}<br>
 
+	</div>
+</div>
+
+<div class="row">
+	<button>Send</button>
 </div>
