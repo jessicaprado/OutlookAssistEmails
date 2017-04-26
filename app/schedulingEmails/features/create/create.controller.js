@@ -5,15 +5,21 @@ angular
 function CreateCtrl($scope) {
     var vm = this;
 
-    vm.shift = {
+    resetView()
+
+    function resetView() {
+    	vm.shift = {
     	type: '',
     	date: '',
     	start: '',
     	end: '',
-    };
+    	};
+    }
 
-    var startCT = vm.shift.start;
+    vm.createEmail = function() {
+    	console.log(vm.shift)
+    }
     
-    console.log(startCT);
+   
     
 }

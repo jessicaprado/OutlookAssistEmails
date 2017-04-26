@@ -3,7 +3,7 @@
 <div class="create col-md-12">
 
 	<div class="row">
-		<div class="eventType col-md-8">
+		<div class="eventType col-md-12">
 			<label class="radio-inline">
 		      	<input type="radio" ng-model="CreateVM.shift.type" value="Bridal">Bridal
 		    </label>
@@ -16,9 +16,9 @@
 		    <label class="radio-inline">
 		      	<input type="radio" ng-model="CreateVM.shift.type" value="MMD/Group">MMD/Group
 		    </label>
-		    <label class="radio-inline">
+		    <!--label class="radio-inline">
 		      	<input type="radio" name="all">Send All
-		    </label>
+		    </label!-->
 
 		</div>
 	</div>
@@ -69,9 +69,10 @@
 	
 	<div class="row emailContent ">
 		<div class="col-md-8">
-			<div class="subject">Assist Needed for {{CreateVM.shift.type}}: {{CreateVM.shift.date | date : "shortDate"}} </div>
+			<div class="subject">Assist Needed for {{CreateVM.shift.type}}: {{CreateVM.shift.date | date : "shortDate"}}<br> </div>
 
 			<div class="body">
+				<br>
 				Team, 
 				<br><br>
 				We need an assist for a {{CreateVM.shift.type}} on {{CreateVM.shift.date}}. Are you available? 
@@ -85,18 +86,11 @@
 				Photographer Call Time: 
 				<br><br><br>
 				
-				<div class="signature">
-					Schedulers<br>
-					Disney Fine Art Photography<br>
-					Part of Disney Event Group<br>
-					Phone: 407.827.1240<br>
-				</div>
-				
 
 			</div>
 		</div>
 	</div>
-
+<!--email-content email-data="CreateVM.shift"></email-content-->
 <div class="row">
 	<button>Send</button>
 </div>

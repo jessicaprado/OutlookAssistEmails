@@ -1,25 +1,25 @@
+<div class="row emailContent ">
+		<div class="col-md-8">
+			<div class="subject">Assist Needed for {{CreateVM.shift.type}}: {{CreateVM.shift.date | date : "shortDate"}} </div>
 
-<div class="row emailContent">
-	<div class="subject">Assist Needed for {{EmailContentVM.shift.type}}: {{EmailContentVM.shift.date}} </div>
+			<div class="body">
+				Team, 
+				<br><br>
+				We need an assist for a {{CreateVM.shift.type}} on {{CreateVM.shift.date}}. Are you available? 
+				<br><br>
+				Event: {{CreateVM.shift.type}}
+				<br>
+				Event Date: {{CreateVM.shift.date}}
+				<br>
+				Event Time: {{CreateVM.shift.start}} - {{CreateVM.shift.end}}
+				<br>
+				Photographer Call Time: 
+				<br><br><br>
+				
 
-	<div class="body">
-		Team, 
-		<br>
-		We need an assist for a {{EmailContentVM.shift.type}} on {{EmailContentVM.shift.date}}. Are you available? 
-		<br>
-		Event: {{EmailContentVM.shift.type}}
-		<br>
-		Event Date: {{EmailContentVM.shift.date}}
-		<br>
-		Event Time: {{EmailContentVM.shift.start}} - {{EmailContentVM.shift.end}}
-		<br>
-		Photographer Call Time: 
-		<br>
-
-		Schedulers<br>
-
+			</div>
+		</div>
 	</div>
-</div>
 
 <div class="row">
 	<button>Send</button>
