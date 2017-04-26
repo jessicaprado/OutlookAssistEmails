@@ -18,8 +18,9 @@ function CreateCtrl($scope) {
 
     $scope.$watch('[CreateVM.shift.type, CreateVM.shift.date, CreateVM.shift.start, CreateVM.shift.end]', function(newValue, oldValue) {
     	
-    	startCT = vm.shift.start;
-    	startCT = moment(startCT).subtract(1, 'hour');
+    	startCT = vm.shift.date + " " + vm.shift.start;
+    	
+
     	console.log(startCT);
     })
    
