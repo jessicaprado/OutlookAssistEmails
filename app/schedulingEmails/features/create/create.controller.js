@@ -16,10 +16,12 @@ function CreateCtrl($scope) {
     	};
     }
 
-    vm.createEmail = function() {
-    	console.log(vm.shift)
-    }
-    
+    $scope.$watch('[CreateVM.shift.type, CreateVM.shift.date, CreateVM.shift.start, CreateVM.shift.end]', function(newValue, oldValue) {
+    	
+    	startCT = vm.shift.start;
+    	startCT = moment(startCT).subtract(1, 'hour');
+    	console.log(startCT);
+    })
    
     
 }
