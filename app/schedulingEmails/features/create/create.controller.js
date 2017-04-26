@@ -5,10 +5,6 @@ angular
 function CreateCtrl($scope) {
     var vm = this;
 
-    $scope.$watch('CreateVM.shift', function(newValue, oldValue) {
-  		console.log(vm.shift)
-	});
-
     vm.shift = {
     	type: '',
     	date: '',
@@ -16,5 +12,8 @@ function CreateCtrl($scope) {
     	end: '',
     };
 
+    var startCT = vm.shift.start;
+    
+    console.log(startCT);
     
 }

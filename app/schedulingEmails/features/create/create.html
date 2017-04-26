@@ -20,7 +20,6 @@
 		      	<input type="radio" name="all">Send All
 		    </label>
 
-		    {{CreateVM.shift.type}}
 		</div>
 	</div>
 
@@ -29,6 +28,7 @@
 			<h5>Date</h5>
 		  	<div class="input-group"
 				moment-picker="CreateVM.shift.date"
+				start-view="month"
 				format="LL">
 				
 				<input class="form-control"
@@ -42,7 +42,8 @@
 			<h5>Start</h5>
 		  	<div class="input-group"
 				moment-picker="CreateVM.shift.start"
-				format="LT">
+				format="LT"
+				>
 				
 				<input class="form-control"
 				    placeholder="Select a time"
@@ -55,7 +56,8 @@
 	  		<h5>End</h5>
 		  	<div class="input-group"
 				moment-picker="CreateVM.shift.end"
-				format="LT">
+				format="LT"
+				>
 			
 				<input class="form-control"
 				    placeholder="Select a time"
@@ -65,27 +67,35 @@
 		</div>
 	</div>
 	
-	<div class="row emailContent">
-	<div class="subject">Assist Needed for {{CreateVM.shift.type}}: {{CreateVM.shift.date}} </div>
+	<div class="row emailContent ">
+		<div class="col-md-8">
+			<div class="subject">Assist Needed for {{CreateVM.shift.type}}: {{CreateVM.shift.date | date : "shortDate"}} </div>
 
-	<div class="body">
-		Team, 
-		<br>
-		We need an assist for a {{CreateVM.shift.type}} on {{CreateVM.shift.date}}. Are you available? 
-		<br>
-		Event: {{CreateVM.shift.type}}
-		<br>
-		Event Date: {{CreateVM.shift.date}}
-		<br>
-		Event Time: {{CreateVM.shift.start}} - {{CreateVM.shift.end}}
-		<br>
-		Photographer Call Time: 
-		<br>
+			<div class="body">
+				Team, 
+				<br><br>
+				We need an assist for a {{CreateVM.shift.type}} on {{CreateVM.shift.date}}. Are you available? 
+				<br><br>
+				Event: {{CreateVM.shift.type}}
+				<br>
+				Event Date: {{CreateVM.shift.date}}
+				<br>
+				Event Time: {{CreateVM.shift.start}} - {{CreateVM.shift.end}}
+				<br>
+				Photographer Call Time: 
+				<br><br><br>
+				
+				<div class="signature">
+					Schedulers<br>
+					Disney Fine Art Photography<br>
+					Part of Disney Event Group<br>
+					Phone: 407.827.1240<br>
+				</div>
+				
 
-		Schedulers<br>
-
+			</div>
+		</div>
 	</div>
-</div>
 
 <div class="row">
 	<button>Send</button>
