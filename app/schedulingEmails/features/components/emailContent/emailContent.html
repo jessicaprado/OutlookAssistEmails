@@ -1,18 +1,22 @@
 
 <div class="row emailContent">
-	<div class="subject">Assist Needed for {{event.type}}: {{date}} </div>
+	<div class="subject">Assist Needed for {{EmailContentVM.shift.type}}: {{EmailContentVM.shift.date}} </div>
 
 	<div class="body">
-		Team, <br>
+		Team, 
+		<br>
+		We need an assist for a {{EmailContentVM.shift.type}} on {{EmailContentVM.shift.date}}. Are you available? 
+		<br>
+		Event: {{EmailContentVM.shift.type}}
+		<br>
+		Event Date: {{EmailContentVM.shift.date}}
+		<br>
+		Event Time: {{EmailContentVM.shift.start}} - {{EmailContentVM.shift.end}}
+		<br>
+		Photographer Call Time: 
+		<br>
 
-		We need an assist for a {{event.type}} on {{date}}. Are you available? <br>
-
-		Event: {{event}}<br>
-		Event Date: {{event date}}<br>
-		Event Time: {{event Time}}<br>
-		Photographer Call Time: {{call time}}<br>
-
-		{{signature}}<br>
+		Schedulers<br>
 
 	</div>
 </div>
