@@ -1,13 +1,8 @@
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
-// var http = require('http');
-// var url = require('url');
+var http = require('http');
+var url = require('url');
 
-// function start(route, handle) {
-//   function onRequest(request, response) {
-//     var pathName = url.parse(request.url).pathname;
-//     console.log('Request for ' + pathName + ' received.');
-//     route(handle, pathName, response, request);
-//   }
+
   
 //   var port = 8000;
 //   http.createServer(onRequest).listen(port);
@@ -28,6 +23,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/*+json' }));
 app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
 app.use(bodyParser.text({ type: 'text/html' }));
+
+function start(route, handle) {
+  function onRequest(request, response) {
+    var pathName = url.parse(request.url).pathname;
+    console.log('Request for ' + pathName + ' received.');
+    route(handle, pathName, response, request);
+  }
 
 app.listen(PORT, function() {
     console.log ("Listening in on PORT " + PORT);
