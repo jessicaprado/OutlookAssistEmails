@@ -5,7 +5,7 @@ angular
 function createConfig($stateProvider) {
 	$stateProvider.state({
 		name: 'create',
-		url: '/',
+		url: '/create',
 		templateUrl: '/schedulingEmails/features/create/create.html',
         controller: 'CreateCtrl',
         controllerAs: 'CreateVM'

@@ -1,19 +1,9 @@
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
 var http = require('http');
 var url = require('url');
-
-
-  
-//   var port = 8000;
-//   http.createServer(onRequest).listen(port);
-//   console.log('Server has started. Listening on port: ' + port + '...');
-// }
-
-// exports.start = start;
-
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 PORT = process.env.PORT || 8000;
 
 app.use(express.static(__dirname + '/app'));
@@ -30,7 +20,10 @@ function start(route, handle) {
     console.log('Request for ' + pathName + ' received.');
     route(handle, pathName, response, request);
   }
+ }
 
 app.listen(PORT, function() {
     console.log ("Listening in on PORT " + PORT);
 })
+
+start();
