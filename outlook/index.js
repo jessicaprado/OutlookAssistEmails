@@ -1,5 +1,5 @@
 // // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
-var server = require('./../server');
+var server = require('./server');
 var router = require('./router');
 var authHelper = require('./authHelper');
 var outlook = require('node-outlook');
