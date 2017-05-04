@@ -231,37 +231,39 @@ function calendar(response, request) {
 
 function contacts(response, request) {
   var token = getValueFromCookie('node-tutorial-token', request.headers.cookie);
-  console.log('Token found in cookie: ', token);
+  //console.log('Token found in cookie: ', token);
   var email = getValueFromCookie('node-tutorial-email', request.headers.cookie);
-  console.log('Email found in cookie: ', email);
+  //console.log('Email found in cookie: ', email);
   if (token) {
     response.writeHead(200, {'Content-Type': 'text/html'});
     response.write('<div><h1>Your contacts</h1></div>');
     
     var queryParams = {
-      '$select': 'DisplayName,Surname,EmailAddresses',
+      '$select': 'DisplayName,EmailAddresses',
       '$orderby': 'DisplayName asc',
-      '$top': 10
+      '$top': 200
     };
     
     // Set the API endpoint to use the v2.0 endpoint
-    outlook.base.setApiEndpoint('https://outlook.office.com/api/v2.0');
+    outlook.base.setApiEndpoint('https://outlook.office.com/api/v2.0/');
     // Set the anchor mailbox to the user's SMTP address
+    console.log("Email: " + email);
     outlook.base.setAnchorMailbox(email);
     
     outlook.contacts.getContacts({token: token, odataParams: queryParams},
       function(error, result){
+        console.log(result.value);
         if (error) {
-          console.log('getContacts returned an error: ' + error);
+          //console.log('getContacts returned an error: ' + error);
           response.write('<p>ERROR: ' + error + '</p>');
           response.end();
         } else if (result) {
-          console.log('getContacts returned ' + result.value.length + ' contacts.');
-          response.write('<table><tr><th>First name</th><th>Last name</th><th>Email</th></tr>');
+        
+          //console.log('getContacts returned ' + result.value.length + ' contacts.');
+          response.write('<table><tr><th>First name</th><th>Email</th></tr>');
           result.value.forEach(function(contact) {
             var email = contact.EmailAddresses[0] ? contact.EmailAddresses[0].Address : 'NONE';
-            response.write('<tr><td>' + contact.GivenName + 
-              '</td><td>' + contact.Surname +
+            response.write('<tr><td>' + contact.DisplayName + 
               '</td><td>' + email + '</td></tr>');
           });
           
