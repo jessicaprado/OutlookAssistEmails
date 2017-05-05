@@ -235,48 +235,33 @@ function contacts(response, request) {
   var email = getValueFromCookie('node-tutorial-email', request.headers.cookie);
   //console.log('Email found in cookie: ', email);
   if (token) {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('<div><h1>Your contacts</h1></div>');
-    
+
+    outlook.base.setApiEndpoint('https://outlook.office.com/api/v2.0');
+
+    // Set up oData parameters
     var queryParams = {
-      '$select': 'DisplayName,EmailAddresses',
-      '$orderby': 'DisplayName asc',
+      '$select': 'GivenName,Surname,EmailAddresses',
+      '$orderby': 'CreatedDateTime desc',
       '$top': 5
     };
 
-    var contactFolderId = "Test";
-    
-    // Set the API endpoint to use the v2.0 endpoint
-    outlook.base.setApiEndpoint('https://outlook.office.com/api/v2.0');
-    // Set the anchor mailbox to the user's SMTP address
-    
-    //outlook.base.setAnchorMailbox(email);
-    
-    outlook.contacts.getContacts(
-    {
-      token: token, 
-      contactFolderId: contactFolderId, 
-      odataParams: queryParams,
-      user: email
-    },
+    // Pass the user's email address
+    var userInfo = {
+      email: 'jessica.x.prado.-nd@disney.com'
+    };
+
+    var contactFolderId = "test";
+
+    outlook.contacts.getContacts({token: token, contactFolderId: contactFolderId, odataParams: queryParams, user: userInfo},
       function(error, result){
-        console.log(result);
         if (error) {
-          //console.log('getContacts returned an error: ' + error);
-          response.write('<p>ERROR: ' + error + '</p>');
-          response.end();
-        } else if (result) {
-        
-          //console.log('getContacts returned ' + result.value.length + ' contacts.');
-          response.write('<table><tr><th>First name</th><th>Email</th></tr>');
+          console.log('getContacts returned an error: ' + error);
+        }
+        else if (result) {
+          console.log('getContacts returned ' + result.value.length + ' contacts.');
           result.value.forEach(function(contact) {
-            var email = contact.EmailAddresses[0] ? contact.EmailAddresses[0].Address : 'NONE';
-            response.write('<tr><td>' + contact.DisplayName + 
-              '</td><td>' + email + '</td></tr>');
+            console.log('  Email Address:', contact.EmailAddresses[0] ? contact.EmailAddresses[0].Address : "NONE");
           });
-          
-          response.write('</table>');
-          response.end();
         }
       });
   } else {
