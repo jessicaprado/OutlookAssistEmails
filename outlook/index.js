@@ -241,18 +241,26 @@ function contacts(response, request) {
     var queryParams = {
       '$select': 'DisplayName,EmailAddresses',
       '$orderby': 'DisplayName asc',
-      '$top': 200
+      '$top': 5
     };
+
+    var contactFolderId = "Test";
     
     // Set the API endpoint to use the v2.0 endpoint
-    outlook.base.setApiEndpoint('https://outlook.office.com/api/v2.0/');
+    outlook.base.setApiEndpoint('https://outlook.office.com/api/v2.0');
     // Set the anchor mailbox to the user's SMTP address
-    console.log("Email: " + email);
-    outlook.base.setAnchorMailbox(email);
     
-    outlook.contacts.getContacts({token: token, odataParams: queryParams},
+    //outlook.base.setAnchorMailbox(email);
+    
+    outlook.contacts.getContacts(
+    {
+      token: token, 
+      contactFolderId: contactFolderId, 
+      odataParams: queryParams,
+      user: email
+    },
       function(error, result){
-        console.log(result.value);
+        console.log(result);
         if (error) {
           //console.log('getContacts returned an error: ' + error);
           response.write('<p>ERROR: ' + error + '</p>');
