@@ -15,16 +15,16 @@ app.use(bodyParser.json({ type: 'application/*+json' }));
 app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
 app.use(bodyParser.text({ type: 'text/html' }));
 
-function start(route, handle) {
-  function onRequest(request, response) {
-    var pathName = url.parse(request.url).pathname;
-    console.log('Request for ' + pathName + ' received.');
-    route(handle, pathName, response, request);
-  }
+// function start(route, handle) {
+//   function onRequest(request, response) {
+//     var pathName = url.parse(request.url).pathname;
+//     console.log('Request for ' + pathName + ' received.');
+//     route(handle, pathName, response, request);
+//   }
  
-  http.createServer(onRequest).listen(PORT);
-  console.log('Start has started. Listening on port: ' + PORT + '...');
-};
+//   http.createServer(onRequest).listen(PORT);
+//   console.log('Start has started. Listening on port: ' + PORT + '...');
+// };
 
 app.listen(PORT, function() {
     console.log ("Listening in on PORT " + PORT);

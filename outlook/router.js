@@ -1,17 +1,28 @@
-// // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
-function route(handle, pathname, response, request) {
-  //console.log('About to route a request for ' + pathname);
-  if (typeof handle[pathname] === 'function') {
-    return handle[pathname](response, request);
-  } else {
-    console.log('No request handler found for ' + pathname);
-    response.writeHead(404 ,{'Content-Type': 'text/plain'});
-    response.write('404 Not Found');
-    response.end();
-  }
-}
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var contacts = require('./getContacts.js');
+var home = require('./home.js');
+var index = require('./index.js')
 
-exports.route = route;
-
+app.use(express.static(__dirname + '/app'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/*+json' }));
+app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
+app.use(bodyParser.text({ type: 'text/html' }));
 
 
+
+app.get('/', function(req, res){
+	home.home();
+})
+
+app.get("/contacts", function(req, res){
+    
+    console.log("Contacts");
+});
+
+
+
+module.exports = app;
