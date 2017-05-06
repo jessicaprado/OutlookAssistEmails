@@ -5,6 +5,7 @@ angular
 
         //features
         'schedulingEmails.create',
+        'schedulingEmails.login',
     ])
     .config(appConfig);
 

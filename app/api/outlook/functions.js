@@ -1,9 +1,21 @@
-var server = require('./server');
+var server = require('./../../../server');
 var router = require('./router');
 var authHelper = require('./authHelper');
 var outlook = require('node-outlook');
+var path = require('path');
+var http = require('http');
 
-function contacts(response, request) {
+module.exports = {
+
+	home: function (req, res) {
+	  console.log(res);
+	  res.sendFile('/test.html', {root: __dirname});
+	  // response.writeHead(200, {'Content-Type': 'text/html'});
+	  // response.write('<p>Please <a href="' + authHelper.getAuthUrl() + '">sign in</a> with your Office 365 or Outlook.com account.</p>');
+	  // response.end();
+	},
+
+	contacts: function (req, res) {
     var token = getValueFromCookie('node-tutorial-token', request.headers.cookie);
     //console.log('Token found in cookie: ', token);
     var email = getValueFromCookie('node-tutorial-email', request.headers.cookie);
@@ -41,4 +53,4 @@ function contacts(response, request) {
     }
 }
 
-module.exports = contacts;
+}
