@@ -7,12 +7,9 @@ var http = require('http');
 
 module.exports = {
 
-	home: function (req, res) {
-	  console.log(res);
-	  res.sendFile('/test.html', {root: __dirname});
-	  // response.writeHead(200, {'Content-Type': 'text/html'});
-	  // response.write('<p>Please <a href="' + authHelper.getAuthUrl() + '">sign in</a> with your Office 365 or Outlook.com account.</p>');
-	  // response.end();
+	login: function (req, res) {
+	  console.log("Login function");
+	  authHelper.getAuthUrl(); 
 	},
 
 	contacts: function (req, res) {
