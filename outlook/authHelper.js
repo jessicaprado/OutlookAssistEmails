@@ -18,6 +18,7 @@ var scopes = [ 'openid',
                'offline_access',
                'https://outlook.office.com/mail.read',
                'https://outlook.office.com/calendars.read',
+               'https://outlook.office.com/mail.send',
                'https://outlook.office.com/contacts.read' ];
 
 function getAuthUrl() {

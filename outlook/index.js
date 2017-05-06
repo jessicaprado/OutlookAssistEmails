@@ -8,7 +8,6 @@ var handle = {};
 handle['/'] = home;
 handle['/authorize'] = authorize;
 handle['/mail'] = mail;
-handle['/calendar'] = calendar;
 handle['/contacts'] = contacts;
 
 server.start(router.route, handle);
@@ -54,6 +53,44 @@ function tokenReceived(response, error, token) {
       }
     }); 
   }
+}
+
+function contacts(response, request) {
+    var token = getValueFromCookie('node-tutorial-token', request.headers.cookie);
+    //console.log('Token found in cookie: ', token);
+    var email = getValueFromCookie('node-tutorial-email', request.headers.cookie);
+    //console.log('Email found in cookie: ', email);
+    if (token) {
+
+        outlook.base.setApiEndpoint('https://outlook.office.com/api/v2.0');
+
+        // Set up oData parameters
+        var queryParams = {
+            '$select': 'EmailAddresses',
+            '$orderby': 'CreatedDateTime desc',
+            '$top': 2
+        };
+
+        //var contactFolderId = "test";
+
+        outlook.contacts.getContacts({token: token, odataParams: queryParams, },
+            function(error, result){
+                if (error) {
+                    console.log('getContacts returned an error: ' + error);
+                }
+                else if (result) {
+                  console.log(result);
+                    console.log('getContacts returned ' + result.value.length + ' contacts.');
+                    result.value.forEach(function(contact) {
+                        console.log('  Email Address:', contact.EmailAddresses[0] ? contact.EmailAddresses[0].Address : "NONE");
+                    });
+                }
+            });
+    } else {
+        response.writeHead(200, {'Content-Type': 'text/html'});
+        response.write('<p> No token found in cookie!</p>');
+        response.end();
+    }
 }
 
 function getUserEmail(token, callback) {
@@ -116,18 +153,18 @@ function mail(response, request) {
     if (token) {
       response.writeHead(200, {'Content-Type': 'text/html'});
       response.write('<div><h1>Your inbox</h1></div>');
-      
+
       var queryParams = {
         '$select': 'Subject,ReceivedDateTime,From,IsRead',
         '$orderby': 'ReceivedDateTime desc',
         '$top': 10
       };
-      
+
       // Set the API endpoint to use the v2.0 endpoint
       outlook.base.setApiEndpoint('https://outlook.office.com/api/v2.0');
       // Set the anchor mailbox to the user's SMTP address
       outlook.base.setAnchorMailbox(email);
-      
+
       outlook.mail.getMessages({token: token, folderId: 'inbox', odataParams: queryParams},
         function(error, result){
           if (error) {
@@ -141,11 +178,11 @@ function mail(response, request) {
             result.value.forEach(function(message) {
               console.log('  Subject: ' + message.Subject);
               var from = message.From ? message.From.EmailAddress.Name : 'NONE';
-              response.write('<tr><td>' + from + 
+              response.write('<tr><td>' + from +
                 '</td><td>' + (message.IsRead ? '' : '<b>') + message.Subject + (message.IsRead ? '' : '</b>') +
                 '</td><td>' + message.ReceivedDateTime.toString() + '</td></tr>');
             });
-            
+
             response.write('</table>');
             response.end();
           }
@@ -158,118 +195,9 @@ function mail(response, request) {
   });
 }
 
-function buildAttendeeString(attendees) {
 
-  var attendeeString = 'wut';
-  if (attendees) {
-    attendeeString = '';
 
-    attendees.forEach(function(attendee) {
-      attendeeString += '<p>Name:' + attendee.EmailAddress.Name + '</p>';
-      attendeeString += '<p>Email:' + attendee.EmailAddress.Address + '</p>';
-      attendeeString += '<p>Type:' + attendee.Type + '</p>';
-      attendeeString += '<p>Response:' + attendee.Status.Response + '</p>';
-      attendeeString += '<p>Respond time:' + attendee.Status.Time + '</p>';
-    });
-  }
 
-  return attendeeString;
-}
-
-function calendar(response, request) {
-  var token = getValueFromCookie('node-tutorial-token', request.headers.cookie);
-  console.log('Token found in cookie: ', token);
-  var email = getValueFromCookie('node-tutorial-email', request.headers.cookie);
-  console.log('Email found in cookie: ', email);
-  if (token) {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('<div><h1>Your calendar</h1></div>');
-    
-    var queryParams = {
-      '$select': 'Subject,Start,End,Attendees',
-      '$orderby': 'Start/DateTime desc',
-      '$top': 10
-    };
-    
-    // Set the API endpoint to use the v2.0 endpoint
-    outlook.base.setApiEndpoint('https://outlook.office.com/api/v2.0');
-    // Set the anchor mailbox to the user's SMTP address
-    outlook.base.setAnchorMailbox(email);
-    // Set the preferred time zone.
-    // The API will return event date/times in this time zone.
-    outlook.base.setPreferredTimeZone('Eastern Standard Time');
-    
-    outlook.calendar.getEvents({token: token, odataParams: queryParams},
-      function(error, result){
-        if (error) {
-          console.log('getEvents returned an error: ' + error);
-          response.write('<p>ERROR: ' + error + '</p>');
-          response.end();
-        } else if (result) {
-          console.log('getEvents returned ' + result.value.length + ' events.');
-          response.write('<table><tr><th>Subject</th><th>Start</th><th>End</th><th>Attendees</th></tr>');
-          result.value.forEach(function(event) {
-            console.log('  Subject: ' + event.Subject);
-            console.log('  Event dump: ' + JSON.stringify(event));
-            response.write('<tr><td>' + event.Subject + 
-              '</td><td>' + event.Start.DateTime.toString() +
-              '</td><td>' + event.End.DateTime.toString() + 
-              '</td><td>' + buildAttendeeString(event.Attendees) + 
-              '</td></tr>');
-          });
-          
-          response.write('</table>');
-          response.end();
-        }
-      });
-  } else {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('<p> No token found in cookie!</p>');
-    response.end();
-  }
-}
-
-function contacts(response, request) {
-  var token = getValueFromCookie('node-tutorial-token', request.headers.cookie);
-  //console.log('Token found in cookie: ', token);
-  var email = getValueFromCookie('node-tutorial-email', request.headers.cookie);
-  //console.log('Email found in cookie: ', email);
-  if (token) {
-
-    outlook.base.setApiEndpoint('https://outlook.office.com/api/v2.0');
-
-    // Set up oData parameters
-    var queryParams = {
-      '$select': 'GivenName,Surname,EmailAddresses',
-      '$orderby': 'CreatedDateTime desc',
-      '$top': 5
-    };
-
-    // Pass the user's email address
-    var userInfo = {
-      email: 'jessica.x.prado.-nd@disney.com'
-    };
-
-    var contactFolderId = "test";
-
-    outlook.contacts.getContacts({token: token, contactFolderId: contactFolderId, odataParams: queryParams, user: userInfo},
-      function(error, result){
-        if (error) {
-          console.log('getContacts returned an error: ' + error);
-        }
-        else if (result) {
-          console.log('getContacts returned ' + result.value.length + ' contacts.');
-          result.value.forEach(function(contact) {
-            console.log('  Email Address:', contact.EmailAddresses[0] ? contact.EmailAddresses[0].Address : "NONE");
-          });
-        }
-      });
-  } else {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('<p> No token found in cookie!</p>');
-    response.end();
-  }
-}
 
 // /*
 //   MIT License: 
