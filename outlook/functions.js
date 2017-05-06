@@ -1,5 +1,5 @@
-var server = require('./../../../server');
-var router = require('./router');
+var server = require('./../server');
+var routes = require('./routes');
 var authHelper = require('./authHelper');
 var outlook = require('node-outlook');
 var path = require('path');
@@ -9,7 +9,6 @@ module.exports = {
 
 	login: function (req, res) {
 	  console.log("Login function");
-	  authHelper.getAuthUrl(); 
 	},
 
 	contacts: function (req, res) {

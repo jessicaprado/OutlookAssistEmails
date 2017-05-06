@@ -1,18 +1,10 @@
-// // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
-var server = require('./../../../server');
-var router = require('./router');
+
+var server = require('./../server');
+var routes = require('./routes');
 var authHelper = require('./authHelper');
 var outlook = require('node-outlook');
-
-
-function home(response, request) {
-  console.log('Request handler \'home\' was called.');
-  response.writeHead(200, {'Content-Type': 'text/html'});
-  response.write('<p>Please <a href="' + authHelper.getAuthUrl() + '">sign in</a> with your Office 365 or Outlook.com account.</p>');
-  response.end();
-}
-
 var url = require('url');
+
 function authorize(response, request) {
   console.log('Request handler \'authorize\' was called.');
   
