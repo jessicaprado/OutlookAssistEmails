@@ -29,7 +29,7 @@ app.get('/authorize', function(req, res){
 })
 
 app.get("/contacts", function(req, res){
-    
+    console.log("contacts recieved")
 });
 
 
