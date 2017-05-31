@@ -1,18 +1,22 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser');
-PORT = process.env.PORT || 8000;
+var morgan = require('morgan');
+var path = require('path'); 
 
-app.use(express.static(__dirname + '/app/api/outlook'));
-//body parser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(bodyParser.text({ type: 'text/html' }));
+// Initialize variables. 
+var port = process.env.PORT || 8000; 
 
-//required js for routes
-var routes = require('./outlook/routes');
-app.use('/', routes);
+// Configure morgan module to log all requests.
+app.use(morgan('dev')); 
 
-app.listen(PORT, function() {
-    console.log ("Listening in on PORT " + PORT);
-})
+// Set the front-end folder to serve public assets.
+app.use(express.static(__dirname + '/public'));
+
+// Set up our one route to the index.html file.
+app.get('*', function (req, res) {
+	res.sendFile(path.join(__dirname + '/app/index.html'));
+});
+
+// Start the server.  
+app.listen(port);
+console.log('I am watching you on ' + port + '...'); 
