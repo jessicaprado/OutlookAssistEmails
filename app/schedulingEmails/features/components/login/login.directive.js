@@ -17,7 +17,7 @@
     }
 
     function LoginCtrl($http, $log, GraphHelper) {
-        let vm = this;
+        var vm = this;
 
         // View model properties
         vm.displayName;
@@ -42,7 +42,7 @@
             if (localStorage.auth) {
                 processAuth();
             } else {
-                let auth = hello('aad').getAuthResponse();
+                var auth = hello('aad').getAuthResponse();
                 if (auth !== null) {
                     localStorage.auth = angular.toJson(auth);
                     processAuth();
@@ -52,10 +52,10 @@
 
         // Auth info is saved in localStorage by now, so set the default headers and user properties.
         function processAuth() {
-            let auth = angular.fromJson(localStorage.auth);
+            var auth = angular.fromJson(localStorage.auth);
 
             // Check token expiry. If the token is valid for another 5 minutes, we'll use it.
-            let expiration = new Date();
+            var expiration = new Date();
             expiration.setTime((auth.expires - 300) * 1000);
             if (expiration > new Date()) {
 
@@ -71,14 +71,14 @@
                     GraphHelper.me().then(function(response) {
 
                         // Save the user to localStorage.
-                        let user =response.data;
+                        var user =response.data;
                         localStorage.setItem('user', angular.toJson(user));
 
                         vm.displayName = user.displayName;
                         vm.emailAddress = user.mail || user.userPrincipalName;
                     });
                 } else {
-                    let user = angular.fromJson(localStorage.user);
+                    var user = angular.fromJson(localStorage.user);
 
                     vm.displayName = user.displayName;
                     vm.emailAddress = user.mail || user.userPrincipalName;
@@ -104,8 +104,8 @@
         function sendMail() {
 
             // Check token expiry. If the token is valid for another 5 minutes, we'll use it.
-            let auth = angular.fromJson(localStorage.auth);
-            let expiration = new Date();
+            var auth = angular.fromJson(localStorage.auth);
+            var expiration = new Date();
             expiration.setTime((auth.expires - 300) * 1000);
             if (expiration > new Date()) {
 
