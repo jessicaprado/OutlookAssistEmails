@@ -1,2 +1,58 @@
 node_modules
 bower_components
+
+.DS_Store
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+#Prepros App
+
+application/node_modules/*
+!application/node_modules/.gitkeep
+
+application/gems/gems/*
+!application/gems/gems/.gitkeep
+
+application/macgems/
+
+application/gems/specifications/*
+!application/gems/specifications/.gitkeep
+
+application/bin/ruby/*
+!application/bin/ruby/.gitkeep
+
+.idea
+ffmpegsumo.dll
+icudt.dll
+libEGL.dll
+libGLESv2.dll
+nw.pak
+Prepros.exe
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Mac crap
+.DS_Store
+
+#Misc
+*.log

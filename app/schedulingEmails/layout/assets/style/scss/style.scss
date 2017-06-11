@@ -1,0 +1,27 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+
+.login {
+  border: 1px black solid;
+}
+
+.create {
+  margin-top: 10px;
+}
+
+.eventType{
+  border: 1px red solid;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.dates {
+  border: 1px blue solid;
+  margin-top: 10px;
+}
+
+.emailContent {
+  border: 1px green solid;
+  margin-top: 10px;
+}

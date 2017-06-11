@@ -1,20 +1,13 @@
-<!--  Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
-        See LICENSE in the source repository root for complete license information. -->
-<div class="ms-Grid-row">
-    <!-- App navigation bar markup. -->
-    <div class="ms-NavBar">
-        <button class="ms-NavBar-item ms-NavBar-item--right" ng-show="LoginVM.isAuthenticated()" ng-click="LoginVM.logout()"><i class="ms-Icon ms-Icon--x"></i> Disconnect</button>
-    </div>
-
-    <!-- App content markup. -->
-    <div class="ms-Grid-col ms-u-mdPush1 ms-u-md9 ms-u-lgPush1 ms-u-lg6">
+<div class="login row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
         <div ng-hide="LoginVM.isAuthenticated()">
             <button class="ms-Button" ng-click="LoginVM.login()">
                 <span class="ms-Button-label">Log In</span>
             </button>
         </div>
         <div ng-show="LoginVM.isAuthenticated()">
-            <h2 class="ms-font-xxl ms-fontWeight-semibold">Hi, {{ LoginVM.displayName }}!</h2>
+            <h3 class="ms-font-xxl ms-fontWeight-semibold">Hi, {{ LoginVM.displayName }}!</h3>
             <!--<div class="ms-TextField">-->
                 <!--<input ng-model="LoginVM.emailAddress" class="ms-TextField-field">-->
             <!--</div>-->
@@ -28,5 +21,9 @@
                 <p class="ms-font-m ms-fontColor-redDark">Something went wrong, couldn't send an email.</p>
             </div>
         </div>
+    </div>
+    <div class="col-md-5"></div>
+    <div class="col-md-2">
+        <button ng-show="LoginVM.isAuthenticated()" ng-click="LoginVM.logout()"> Disconnect</button>
     </div>
 </div>
