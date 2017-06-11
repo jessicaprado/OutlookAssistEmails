@@ -3,9 +3,11 @@
 		.module('schedulingEmails', [
 			//global dependencies
 			'ui.router',
+            //'moment-picker',
 
 			//features
 			'schedulingEmails.create',
+
 		])
 		.config(appConfig);
 

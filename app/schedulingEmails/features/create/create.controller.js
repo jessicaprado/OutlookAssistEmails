@@ -22,13 +22,7 @@ function CreateCtrl($scope) {
     	console.log(startCT);
     });
 
-    $http.get("https://outlook.office365.com/api/v1.0/me/messages")
-      .then(function(response) {
-        $log.debug('HTTP request to Mail API returned successfully.');
-        vm.emails = response.data.value;
-      }, function(error) {
-        $log.error('HTTP request to Mail API failed.');
-      });
+
   };
 
 

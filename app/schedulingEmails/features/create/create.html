@@ -1,5 +1,3 @@
-<login></login>
-
 <div class="create col-md-12">
 
 	<div class="row">
@@ -24,13 +22,13 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-4"> 
+		<div class="col-md-4">
 			<h5>Date</h5>
 		  	<div class="input-group"
 				moment-picker="CreateVM.shift.date"
 				start-view="month"
 				format="LL">
-				
+
 				<input class="form-control"
 				    placeholder="Select a date"
 				    ng-model="CreateVM.shift.date"
@@ -38,27 +36,27 @@
 			</div>
 		</div>
 
-		<div class="col-md-4"> 
+		<div class="col-md-4">
 			<h5>Start</h5>
 		  	<div class="input-group"
 				moment-picker="CreateVM.shift.start"
 				format="LT"
 				>
-				
+
 				<input class="form-control"
 				    placeholder="Select a time"
 				    ng-model="CreateVM.shift.start"
 				    ng-model-options="{ updateOn: 'blur' }">
 			</div>
 		</div>
-	  	
+
 	  	<div class="col-md-4">
 	  		<h5>End</h5>
 		  	<div class="input-group"
 				moment-picker="CreateVM.shift.end"
 				format="LT"
 				>
-			
+
 				<input class="form-control"
 				    placeholder="Select a time"
 				    ng-model="CreateVM.shift.end"
@@ -66,17 +64,17 @@
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 	<div class="row emailContent ">
 		<div class="col-md-8">
 			<div class="subject">Assist Needed for {{CreateVM.shift.type}}: {{CreateVM.shift.date | date : "shortDate"}}<br> </div>
 
 			<div class="body">
 				<br>
-				Team, 
+				Team,
 				<br><br>
-				We need an assist for a {{CreateVM.shift.type}} on {{CreateVM.shift.date}}. Are you available? 
+				We need an assist for a {{CreateVM.shift.type}} on {{CreateVM.shift.date}}. Are you available?
 				<br><br>
 				Event: {{CreateVM.shift.type}}
 				<br>
@@ -84,9 +82,9 @@
 				<br>
 				Event Time: {{CreateVM.shift.start}} - {{CreateVM.shift.end}}
 				<br>
-				Photographer Call Time: 
+				Photographer Call Time:
 				<br><br><br>
-				
+
 
 			</div>
 		</div>
@@ -95,5 +93,5 @@
 <div class="row">
 	<button>Send</button>
 </div>
-	
+
 </div>

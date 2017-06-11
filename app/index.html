@@ -1,44 +1,53 @@
 <!DOCTYPE html>
-<html ng-app="app">
-
+  <html lang="en">
   <head>
+    <base href="/" />
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Office 365 APIs sample</title>
-    <base href="/">
-  
-    <style>
-      body {
-        padding-top: 50px;
-      }
-    </style>
-  
-    <!-- Third party dependencies. -->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.js"></script>
-  
-    <!-- App code. -->
-    <script src="scripts/app.js"></script>
-    <script src="controllers/homeController.js"></script>
-  
-    <!-- ADAL JS files. -->
-    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.7/js/adal.min.js"></script>
-    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.7/js/adal-angular.min.js"></script>
+    <title>Scheduling Emails</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="fragment" content="!">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+
+    <script src="/bower_components/hello/dist/hello.all.js"></script>
+    <script src="/bower_components/hello/src/hello.polyfill.js"></script>
+    <script src="/bower_components/hello/src/hello.js"></script>
+
+    <!--<script src='/node_modules/moment/min/moment.min.js'></script>-->
+    <!--<script src="/node_modules/moment/min/moment-with-locales.js"></script>-->
+    <!--<script src="/node_modules/angular-moment-picker/dist/angular-moment-picker.min.js"></script>-->
+    <!--<link href="/node_modules/angular-moment-picker/dist/angular-moment-picker.min.css" rel="stylesheet">-->
+
   </head>
 
-<body class="container">
-  <header>
-    <div class="col-md-8 col-md-offset-2">
-      <div class="page-header">
-        <h1>Get started with Office 365 APIs <small>Angular</small></h1>
-      </div>
-    </div>
-  </header>
-  <main>
-    <div ng-view></div>
-  </main>
-</body>
+  <body ng-app="schedulingEmails">
+  <h1> Scheduling Emails </h1>
+
+  <div class="everything">
+    <ui-view></ui-view>
+  </div>
+
+  <script src="schedulingEmails/schedulingEmails.module.js"></script>
+
+  <script src="schedulingEmails/features/create/create.module.js"></script>
+  <script src="schedulingEmails/features/create/create.controller.js"></script>
+  <script src="schedulingEmails/features/create/create.routes.js"></script>
+
+  <script src="schedulingEmails/helpers/aad.js"></script>
+  <script src="schedulingEmails/helpers/config.js"></script>
+
+  <script src="schedulingEmails/features/components/emailContent/emailContent.module.js"></script>
+  <script src="schedulingEmails/features/components/emailContent/emailContent.directive.js"></script>
+
+  <script src="schedulingEmails/features/components/login/login.module.js"></script>
+  <script src="schedulingEmails/features/components/login/login.directive.js"></script>
+
+  <script src="schedulingEmails/features/components/graphHelper/graphHelper.module.js"></script>
+  <script src="schedulingEmails/features/components/graphHelper/graphHelper.service.js"></script>
+
+  </body>
 
 </html>
