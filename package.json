@@ -22,8 +22,6 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "morgan": "^1.8.1",
-    "node-outlook": "^1.1.6",
-    "path": "^0.12.7",
-    "simple-oauth2": "^1.1.0"
+    "path": "^0.12.7"
   }
 }
