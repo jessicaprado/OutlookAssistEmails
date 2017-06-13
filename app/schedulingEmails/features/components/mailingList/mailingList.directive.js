@@ -9,12 +9,19 @@ function MailingList() {
             emailData: '='
         },
         templateUrl: '/schedulingEmails/features/components/mailingList/mailingList.html',
-        controller: MailingListCtrl,
-        controllerAs: 'MailingListVM',
+        controller: MailingCtrl,
+        controllerAs: 'MailingVM',
         bindToController: true
     }
 }
 
-function MailingListCtrl() {
+function MailingCtrl($scope) {
+    vm = this;
+
+    vm.mailList = '';
+
+    $scope.$watch('MailingVM.mailList', function(value) {
+        console.log(value);
+    });
 
 }
