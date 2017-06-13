@@ -8,7 +8,7 @@
     function ContactFolders($http) {
 
         return {
-            contacts: function () {
+            contacts: function (contactFolders) {
                 $http({
                     method: 'GET',
                     url: 'https://graph.microsoft.com/v1.0/me/contactfolders'

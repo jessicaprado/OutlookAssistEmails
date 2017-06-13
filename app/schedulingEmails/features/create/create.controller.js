@@ -3,12 +3,16 @@ angular
     .module('schedulingEmails.create')
     .controller('CreateCtrl', CreateCtrl);
 
-function CreateCtrl(ContactFolders) {
+function CreateCtrl(contactFolders) {
     var vm = this;
 
-    vm.contacts = function () {
-        ContactFolders.contacts();
-    };
+    vm.contactFolder = [];
+
+    contactFolders.contacts(vm.contactFolder );
+    console.log(vm.contactFolder);
+
+
+
 
 
     // resetView();
