@@ -19,6 +19,7 @@
     function LoginCtrl($http, $log, GraphHelper) {
         var vm = this;
 
+        vm.contactFolder = {};
         // View model properties
         vm.displayName;
         vm.emailAddress;
@@ -103,7 +104,15 @@
 
         function contacts() {
             GraphHelper.contacts().then(function (res) {
-                console.log(res.data)
+                folderData = res.data.value;
+                folderData.forEach(function (element) {
+                    (vm.contactFolder).push ({
+                        name: element.displayName,
+                        id: element.id
+                    });
+                })
+                console.log(vm.contactFolder);
+
             })
         }
 
