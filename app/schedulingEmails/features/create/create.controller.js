@@ -3,7 +3,7 @@ angular
     .module('schedulingEmails.create')
     .controller('CreateCtrl', CreateCtrl);
 
-function CreateCtrl($scope) {
+function CreateCtrl($scope, graphHelper) {
     var vm = this;
 
     resetView()

@@ -36,6 +36,11 @@
         // Send an email on behalf of the current user.
         sendMail: function sendMail(email) {
           return $http.post('https://graph.microsoft.com/v1.0/me/sendMail', { 'message' : email, 'saveToSentItems': true });        
+        },
+
+        //Grab Contacts of user
+        contacts: function contacts() {
+            return $http.get('https://graph.microsoft.com/me/contacts/');
         }
       }
     }]);

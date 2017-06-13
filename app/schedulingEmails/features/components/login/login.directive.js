@@ -32,6 +32,7 @@
         vm.logout = logout;
         vm.isAuthenticated = isAuthenticated;
         vm.initAuth = initAuth;
+        vm.contacts = contacts;
 
         /////////////////////////////////////////
         // End of exposed properties and methods.
