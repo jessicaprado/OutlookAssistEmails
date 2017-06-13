@@ -3,8 +3,10 @@
 (function () {
   angular
     .module('schedulingEmails.component.graphHelper')
-    .service('GraphHelper', ['$http', function ($http) {
+    .service('GraphHelper', GraphHelper);
 
+
+  function GraphHelper($http) {
       // Initialize the auth request.
       hello.init( {
         aad: clientId // from public/scripts/config.js
@@ -40,8 +42,8 @@
 
         //Grab Contacts of user
         contacts: function contacts() {
-            return $http.get('https://graph.microsoft.com/me/contacts/');
+            return $http.get('https://graph.microsoft.com/v1.0/me/contacts');
         }
       }
-    }]);
+    };
 })();

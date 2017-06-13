@@ -101,6 +101,12 @@
             GraphHelper.logout();
         }
 
+        function contacts() {
+            GraphHelper.contacts().then(function (res) {
+                console.log(res.data)
+            })
+        }
+
         // Send an email on behalf of the current user.
         function sendMail() {
 

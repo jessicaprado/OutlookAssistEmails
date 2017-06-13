@@ -6,6 +6,7 @@
                 <span class="ms-Button-label">Log In</span>
             </button>
         </div>
+        <button ng-click="LoginVM.contacts()">contacts</button>
         <div ng-show="LoginVM.isAuthenticated()">
             <h3 class="ms-font-xxl ms-fontWeight-semibold">Hi, {{ LoginVM.displayName }}!</h3>
             <!--<div class="ms-TextField">-->
