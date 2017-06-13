@@ -19,7 +19,6 @@
     function LoginCtrl($http, $log, GraphHelper) {
         var vm = this;
 
-        vm.contactFolder = {};
         // View model properties
         vm.displayName;
         vm.emailAddress;
@@ -33,7 +32,6 @@
         vm.logout = logout;
         vm.isAuthenticated = isAuthenticated;
         vm.initAuth = initAuth;
-        vm.contacts = contacts;
 
         /////////////////////////////////////////
         // End of exposed properties and methods.
@@ -100,20 +98,6 @@
 
         function logout() {
             GraphHelper.logout();
-        }
-
-        function contacts() {
-            GraphHelper.contacts().then(function (res) {
-                folderData = res.data.value;
-                folderData.forEach(function (element) {
-                    (vm.contactFolder).push ({
-                        name: element.displayName,
-                        id: element.id
-                    });
-                })
-                console.log(vm.contactFolder);
-
-            })
         }
 
         // Send an email on behalf of the current user.

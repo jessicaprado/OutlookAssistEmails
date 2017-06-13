@@ -3,25 +3,29 @@ angular
     .module('schedulingEmails.create')
     .controller('CreateCtrl', CreateCtrl);
 
-function CreateCtrl($scope, GraphHelper) {
+function CreateCtrl(ContactFolders) {
     var vm = this;
 
-
-    resetView()
-
-    function resetView() {
-    	vm.shift = {
-    	type: '',
-    	date: '',
-    	start: '',
-    	end: '',
-    	};
+    vm.contacts = function () {
+        ContactFolders.contacts();
     };
 
-    $scope.$watch('[CreateVM.shift.type, CreateVM.shift.date, CreateVM.shift.start, CreateVM.shift.end]', function(newValue, oldValue) {
-    	startCT = vm.shift.date + " " + vm.shift.start;
-    	console.log(startCT);
-    });
+
+    // resetView();
+    //
+    // function resetView() {
+    // 	vm.shift = {
+    // 	type: '',
+    // 	date: '',
+    // 	start: '',
+    // 	end: '',
+    // 	};
+    // };
+    //
+    // $scope.$watch('[CreateVM.shift.type, CreateVM.shift.date, CreateVM.shift.start, CreateVM.shift.end]', function(newValue, oldValue) {
+    // 	startCT = vm.shift.date + " " + vm.shift.start;
+    // 	console.log(startCT);
+    // });
 
 
   };
