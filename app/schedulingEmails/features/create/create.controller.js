@@ -14,25 +14,39 @@ function CreateCtrl(contactFolders) {
 
 
 
-
-    // resetView();
-    //
-    // function resetView() {
-    // 	vm.shift = {
-    // 	type: '',
-    // 	date: '',
-    // 	start: '',
-    // 	end: '',
-    // 	};
-    // };
-    //
-    // $scope.$watch('[CreateVM.shift.type, CreateVM.shift.date, CreateVM.shift.start, CreateVM.shift.end]', function(newValue, oldValue) {
-    // 	startCT = vm.shift.date + " " + vm.shift.start;
-    // 	console.log(startCT);
-    // });
-
-
-  };
+  //   POST https://graph.microsoft.com/v1.0/me/sendMail
+  //       Content-type: application/json
+  //   Content-length: 512
+  //
+  //   {
+  //       "message": {
+  //       "from": {"@odata.type": "microsoft.graph.recipient"},
+  //       "sender": {"@odata.type": "microsoft.graph.recipient"},
+  //       "subject": "Assist Needed for",
+  //           "body": {
+  //           "contentType": "Text",
+  //               "content": "The new cafeteria is open."
+  //       },
+  //       "toRecipients": [
+  //           {
+  //               "emailAddress": {
+  //                   "address": "fannyd@contoso.onmicrosoft.com"
+  //               }
+  //           }
+  //       ],
+  //           "ccRecipients": [
+  //           {
+  //               "emailAddress": {
+  //                   "address": "dfap.scheduler@disney.com"
+  //               }
+  //           }
+  //       ]
+  //   },
+  //       "saveToSentItems": "true"
+  //   }
+  //
+  //
+  // };
 
 
 })(); //end of angular function
