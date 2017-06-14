@@ -6,7 +6,7 @@ function MailingList() {
     return {
         restrict: 'E',
         scope: {
-            emailData: '='
+            contactData: '='
         },
         templateUrl: '/schedulingEmails/features/components/selectedContactList/selectedContactList.html',
         controller: SelectedContactsCtrl,

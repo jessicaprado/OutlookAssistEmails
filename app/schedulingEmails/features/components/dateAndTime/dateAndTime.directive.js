@@ -6,7 +6,7 @@ function DateAndTime() {
     return {
         restrict: 'E',
         scope: {
-            emailData: '='
+            datetimeData: '='
         },
         templateUrl: '/schedulingEmails/features/components/dateAndTime/dateAndTime.html',
         controller: DateAndTimeCtrl,
@@ -18,5 +18,16 @@ function DateAndTime() {
 function DateAndTimeCtrl($scope) {
     vm = this;
 
+    $scope.$watch('DateAndTimeVM.date', function(value) {
+        console.log(value);
+    });
+
+    $scope.$watch('DateAndTimeVM.start', function(value) {
+        console.log(value);
+    });
+
+    $scope.$watch('DateAndTimeVM.end', function(value) {
+        console.log(value);
+    });
     
 }

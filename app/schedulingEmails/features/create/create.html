@@ -4,12 +4,11 @@
 
 	<mailing-list></mailing-list>
 
-	<date-and-time></date-and-time>
-
+	<date-and-time datetime-data='datetime'></date-and-time>
 
 	<div class="row emailContent ">
 		<div class="col-md-8">
-			<div class="subject">Assist Needed for {{CreateVM.shift.type}}: {{CreateVM.shift.date | date : "shortDate"}}<br> </div>
+			<div data-datetime ='datetime' class="subject">Assist Needed for {{CreateVM.type}}: {{DateAndTimeVM.date | date : "shortDate"}}<br> </div>
 
 			<div class="body">
 				<br>
