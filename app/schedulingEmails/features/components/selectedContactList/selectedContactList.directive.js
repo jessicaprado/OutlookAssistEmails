@@ -1,5 +1,5 @@
 angular
-    .module('schedulingEmails.component.mailingList')
+    .module('schedulingEmails.component.selectedContactList')
     .directive('mailingList', MailingList);
 
 function MailingList() {
@@ -8,19 +8,19 @@ function MailingList() {
         scope: {
             emailData: '='
         },
-        templateUrl: '/schedulingEmails/features/components/mailingList/mailingList.html',
-        controller: MailingCtrl,
-        controllerAs: 'MailingVM',
+        templateUrl: '/schedulingEmails/features/components/selectedContactList/selectedContactList.html',
+        controller: SelectedContactsCtrl,
+        controllerAs: 'SelectedContactsVM',
         bindToController: true
     }
 }
 
-function MailingCtrl($scope) {
+function SelectedContactsCtrl($scope) {
     vm = this;
 
     vm.mailList = '';
 
-    $scope.$watch('MailingVM.mailList', function(value) {
+    $scope.$watch('SelectedContactsVM.mailList', function(value) {
         vm.mailList = value;
         console.log(vm.mailList);
     });

@@ -1,7 +1,7 @@
 angular.module('schedulingEmails.create', [
-	'schedulingEmails.component.emailContent',
-    'schedulingEmails.component.mailingList',
-    'schedulingEmails.component.login',
+	'schedulingEmails.component.login',
     'schedulingEmails.component.graphHelper',
-    'schedulingEmails.component.contactFolders',
+    'schedulingEmails.component.selectedContactList',
+    'schedulingEmails.component.getContactFolders',
+    'schedulingEmails.component.dateAndTime'
 ]);

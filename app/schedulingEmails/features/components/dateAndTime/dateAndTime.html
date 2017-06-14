@@ -1,0 +1,43 @@
+<div class="row dates">
+		<div class="col-md-4">
+			<h5>Date</h5>
+		  	<div class="input-group"
+				moment-picker="CreateVM.shift.date"
+				start-view="month"
+				format="LL">
+
+				<input class="form-control"
+				    placeholder="Select a date"
+				    ng-model="CreateVM.shift.date"
+				    ng-model-options="{ updateOn: 'blur' }">
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<h5>Start</h5>
+		  	<div class="input-group"
+				moment-picker="CreateVM.shift.start"
+				format="LT"
+				>
+
+				<input class="form-control"
+				    placeholder="Select a time"
+				    ng-model="CreateVM.shift.start"
+				    ng-model-options="{ updateOn: 'blur' }">
+			</div>
+		</div>
+
+	  	<div class="col-md-4">
+	  		<h5>End</h5>
+		  	<div class="input-group"
+				moment-picker="CreateVM.shift.end"
+				format="LT"
+				>
+
+				<input class="form-control"
+				    placeholder="Select a time"
+				    ng-model="CreateVM.shift.end"
+				    ng-model-options="{ updateOn: 'blur' }">
+			</div>
+		</div>
+	</div>

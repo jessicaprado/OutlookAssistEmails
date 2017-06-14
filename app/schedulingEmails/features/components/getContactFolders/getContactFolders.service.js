@@ -2,7 +2,7 @@
 
 (function () {
     angular
-        .module('schedulingEmails.component.contactFolders')
+        .module('schedulingEmails.component.getContactFolders')
         .service('contactFolders', ContactFolders);
 
     function ContactFolders($http) {
@@ -21,17 +21,3 @@
         }
     }
 })();
-
-// function contacts() {
-//     GraphHelper.contacts().then(function (res) {
-//         folderData = res.data.value;
-//         folderData.forEach(function (element) {
-//             (vm.contactFolder).push ({
-//                 name: element.displayName,
-//                 id: element.id
-//             });
-//         })
-//         console.log(vm.contactFolder);
-//
-//     })
-// }
