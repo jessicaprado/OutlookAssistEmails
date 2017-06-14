@@ -11,7 +11,7 @@ function CreateCtrl(contactFolders) {
     contactFolders.contacts(vm.contactFolder );
     console.log(vm.contactFolder);
 
-
+}
 
 
   //   POST https://graph.microsoft.com/v1.0/me/sendMail
