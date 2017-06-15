@@ -11,9 +11,9 @@
             <!--<div class="ms-TextField">-->
                 <!--<input ng-model="LoginVM.emailAddress" class="ms-TextField-field">-->
             <!--</div>-->
-            <!--<button class="ms-Button" ng-click="LoginVM.sendMail()">-->
-                <!--<span class="ms-Button-label">Send mail</span>-->
-            <!--</button>-->
+            <button class="ms-Button" ng-click="LoginVM.sendMail()">
+                <span class="ms-Button-label">Send mail</span>
+            </button>
             <div ng-show="LoginVM.requestSuccess && LoginVM.requestFinished">
                 <p class="ms-font-m ms-fontColor-green">Successfully sent an email to {{ LoginVM.emailAddressSent }}!</p>
             </div>

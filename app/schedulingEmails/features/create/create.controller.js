@@ -20,7 +20,7 @@ function CreateCtrl(contactFolders) {
   //
   //   {
   //       "message": {
-  //       "from": {"@odata.type": "microsoft.graph.recipient"},
+  //       "from": {"@odata.type": "dfap.scheduler@disney.com"},
   //       "sender": {"@odata.type": "microsoft.graph.recipient"},
   //       "subject": "Assist Needed for",
   //           "body": {
@@ -30,7 +30,7 @@ function CreateCtrl(contactFolders) {
   //       "toRecipients": [
   //           {
   //               "emailAddress": {
-  //                   "address": "fannyd@contoso.onmicrosoft.com"
+  //                   "address": "jessica.marie.prado@gmail.com"
   //               }
   //           }
   //       ],

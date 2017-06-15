@@ -119,14 +119,14 @@
                     ToRecipients: [
                         {
                             EmailAddress: {
-                                Address: vm.emailAddress
+                                Address: "jessica.marie.prado@gmail.com"
                             }
                         }
                     ]
                 };
 
                 // Save email address so it doesn't get lost with two way data binding.
-                vm.emailAddressSent = vm.emailAddress;
+                //vm.emailAddressSent = vm.emailAddress;
 
                 GraphHelper.sendMail(email)
                     .then(function (response) {

@@ -4,11 +4,11 @@
 
 	<mailing-list></mailing-list>
 
-	<date-and-time datetime-data='datetime'></date-and-time>
+	<date-and-time></date-and-time>
 
 	<div class="row emailContent ">
 		<div class="col-md-8">
-			<div data-datetime ='datetime' class="subject">Assist Needed for {{CreateVM.type}}: {{DateAndTimeVM.date | date : "shortDate"}}<br> </div>
+			<div class="subject">Assist Needed for {{CreateVM.type}}: {{CreateVM.date | date : "shortDate"}}<br> </div>
 
 			<div class="body">
 				<br>
@@ -19,7 +19,7 @@
 				Event: {{CreateVM.shift.type}}
 				<br>
 				Event Date: {{CreateVM.shift.date}}
-				<br>
+				<br> 
 				Event Time: {{CreateVM.shift.start}} - {{CreateVM.shift.end}}
 				<br>
 				Photographer Call Time:
