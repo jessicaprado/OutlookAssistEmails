@@ -7,10 +7,9 @@
             </button>
         </div>
         <div ng-show="LoginVM.isAuthenticated()">
-            <h3 class="ms-font-xxl ms-fontWeight-semibold">Hi, {{ LoginVM.displayName }}!</h3>
-            <!--<div class="ms-TextField">-->
-                <!--<input ng-model="LoginVM.emailAddress" class="ms-TextField-field">-->
-            <!--</div>-->
+            <h3 class="ms-font-xxl ms-fontWeight-semibold"
+                ng-show="LoginVM.isAuthenticated()"
+            >Hi, {{ LoginVM.displayName }}!</h3>
             <button class="ms-Button" ng-click="LoginVM.sendMail()">
                 <span class="ms-Button-label">Send mail</span>
             </button>

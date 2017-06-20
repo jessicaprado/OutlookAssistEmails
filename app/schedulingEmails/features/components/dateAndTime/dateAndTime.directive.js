@@ -18,8 +18,18 @@ function DateAndTime() {
 function DateAndTimeCtrl($scope) {
     vm = this;
 
+
+
     $scope.$watch('DateAndTimeVM.date', function(value) {
-        console.log(value);
+        var date = value;
+        console.log(date);
+
+        if(date != undefined) {
+            console.log('I am empty')
+        } else {
+            console.log('I am NOT empty')
+        };
+
     });
 
     $scope.$watch('DateAndTimeVM.start', function(value) {

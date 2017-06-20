@@ -2,42 +2,48 @@
 		<div class="col-md-4">
 			<h5>Date</h5>
 		  	<div class="input-group"
-				moment-picker="CreateVM.date"
+				moment-picker="DateAndTimeVM.date"
 				start-view="month"
 				format="LL">
 
 				<input class="form-control"
 				    placeholder="Select a date"
-				    ng-model="CreateVM.date"
-				    ng-model-options="{ updateOn: 'blur' }">
+				    ng-model="DateAndTimeVM.date"
+				    ng-model-options="{ updateOn: 'blur' }"
+					required
+				>
 			</div>
 		</div>
 
 		<div class="col-md-4">
 			<h5>Start</h5>
 		  	<div class="input-group"
-				moment-picker="CreateVM.start"
+				moment-picker="DateAndTimeVM.start"
 				format="LT"
 				>
 
 				<input class="form-control"
 				    placeholder="Select a time"
-				    ng-model="CreateVM.start"
-				    ng-model-options="{ updateOn: 'blur' }">
+				    ng-model="DateAndTimeVM.start"
+				    ng-model-options="{ updateOn: 'blur' }"
+					required
+				>
 			</div>
 		</div>
 
 	  	<div class="col-md-4">
 	  		<h5>End</h5>
 		  	<div class="input-group"
-				moment-picker="CreateVM.end"
+				moment-picker="DateAndTimeVM.end"
 				format="LT"
 				>
 
 				<input class="form-control"
 				    placeholder="Select a time"
-				    ng-model="CreateVM.end"
-				    ng-model-options="{ updateOn: 'blur' }">
+				    ng-model="DateAndTimeVM.end"
+				    ng-model-options="{ updateOn: 'blur' }"
+					required
+				>
 			</div>
 		</div>
 	</div>
